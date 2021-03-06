@@ -12,7 +12,7 @@ const router = new Router()
 
 router.use(error)
 
-router.get('/users', users.getAllUsers)
+router.get('/users', authenticated, users.getAllUsers)
 router.post('/users', authenticated, users.createUser)
 
 router.post('/auth', auth.authenticate)

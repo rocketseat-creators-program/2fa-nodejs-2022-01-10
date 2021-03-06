@@ -21,7 +21,7 @@ const authenticate = async ({ email, password }) => {
   if (!isMatch) {
     return authFailed(email)
   }
-  return token.sign(user.dataValues)
+  return token.sign({ id: user.id, role: user.role })
 }
 
 module.exports = {

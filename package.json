@@ -1,7 +1,7 @@
 {
-  "name": "jwt-rs",
+  "name": "refresh-tokens-rs",
   "version": "1.0.0",
-  "description": "Repositório do Workshop de JWT para a Rocketseat",
+  "description": "Repositório do Workshop de Refresh Tokens para a Rocketseat",
   "main": "index.js",
   "scripts": {
     "start": "npm run sequelize:migrate && node src/index.js",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/askmon/jwt-rocketseat#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
