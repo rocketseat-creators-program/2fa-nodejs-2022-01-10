@@ -6,8 +6,9 @@
   "scripts": {
     "start": "npm run sequelize:migrate && node src/index.js",
     "dev": "NODE_ENV=dev nodemon --inspect=0.0.0.0 src/index.js",
-    "lint": "eslint ./src ./config --ext .json --ext .js --fix",
-    "sequelize:migrate": "sequelize db:migrate --env database"
+    "lint": "eslint ./src ./config ./db --ext .json --ext .js --fix",
+    "sequelize:migrate": "sequelize db:migrate --env database",
+    "sequelize:seed": "sequelize db:seed:all --env database"
   },
   "engines": {
     "node": ">=12"
