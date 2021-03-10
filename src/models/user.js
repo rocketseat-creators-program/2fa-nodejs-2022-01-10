@@ -10,8 +10,5 @@ module.exports = (sequelize, DataTypes) => {
   }
   const User = sequelize.define('User', schema, modelOptions)
 
-  User.associate = models => {
-    // associations can be defined here
-  }
   return User
 }

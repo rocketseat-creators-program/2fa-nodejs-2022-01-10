@@ -8,6 +8,7 @@ module.exports = {
       email: 'teste@user.com',
       password: await bcrypt
         .hash('1234', config.hashSaltRounds),
+      role: 'USER',
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
@@ -15,6 +16,7 @@ module.exports = {
       email: 'teste@admin.com',
       password: await bcrypt
         .hash('1234', config.hashSaltRounds),
+      role: 'ADMIN',
       createdAt: new Date(),
       updatedAt: new Date(),
     }]
