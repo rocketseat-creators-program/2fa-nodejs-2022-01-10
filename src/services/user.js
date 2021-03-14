@@ -24,8 +24,12 @@ const createUser = user =>
 const findByEmail = email =>
   User.findOne({ where: { email } })
 
+const findById = id =>
+  User.findOne({ where: { id } })
+
 module.exports = {
   getUsers,
   createUser,
   findByEmail,
+  findById,
 }

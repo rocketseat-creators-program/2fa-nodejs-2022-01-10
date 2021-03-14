@@ -16,5 +16,6 @@ router.get('/users', authenticated, users.getAllUsers)
 router.post('/users', authenticated, users.createUser)
 
 router.post('/auth', auth.authenticate)
+router.post('/auth/refreshToken', auth.refreshToken)
 
 module.exports = router
