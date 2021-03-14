@@ -36,8 +36,7 @@ const refreshToken = async ({ token }) => {
     refreshTokenObject.valid &&
     refreshTokenObject.expiresAt >= Date.now()
   ) {
-    refreshTokenObject.valid = false
-    await refreshTokenObject.save()
+    await tokenService.invalidateRefreshToken(token)
 
     const user = await users.findById(refreshTokenObject.user_id)
     const { token: refreshToken, expiresAt: refreshTokenExpiration } = await tokenService.createRefreshToken(user.id)
