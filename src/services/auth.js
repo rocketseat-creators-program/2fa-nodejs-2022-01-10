@@ -50,7 +50,15 @@ const refreshToken = async ({ token }) => {
   return authFailed()
 }
 
+const logout = async ({ token, allDevices }) => {
+  if (allDevices) {
+    return tokenService.invalidateAllUserRefreshTokens(token)
+  }
+  return tokenService.invalidateRefreshToken(token)
+}
+
 module.exports = {
   authenticate,
   refreshToken,
+  logout,
 }

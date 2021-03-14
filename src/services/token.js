@@ -30,11 +30,20 @@ const createRefreshToken = async userId => {
   return { token, expiresAt }
 }
 
-const getRefreshToken = async token => Token.findOne(({ where: { token } }))
+const getRefreshToken = async token => Token.findOne({ where: { token } })
+
+const invalidateRefreshToken = async token => Token.update({ valid: false }, { where: { token } })
+
+const invalidateAllUserRefreshTokens = async token => {
+  Token.findOne({ where: { token } })
+    .then(tokenResult => Token.update({ valid: false }, { where: { user_id: tokenResult.user_id } }))
+}
 
 module.exports = {
   sign,
   verify,
   createRefreshToken,
   getRefreshToken,
+  invalidateRefreshToken,
+  invalidateAllUserRefreshTokens,
 }
