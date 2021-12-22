@@ -1,57 +1,29 @@
-# JWT - Autenticação e melhores práticas
+## Implementando 2FA com QR Code em Node.js
 
-Repositório do Workshop de melhores práticas usando JWT.
+<img src="https://storage.googleapis.com/golden-wind/experts-club/capa-github.svg" />
 
-Na branch `complete` você encontra a versão final do projeto feita durante o workshop.
+Cada vez mais vemos crimes cibernéticos e golpes acontecendo que roubam os dados das pessoas, por isso precisamos investir sempre mais na segurança das nossas aplicações. Uma forma de aumentar a segurança no login dos usuários das nossas ferramentas é implementando a autenticação em 2 etapas, ou abreviando, 2FA (Two Factor Authentication). Existem diferentes formas de se fazer isso, mas nesta aula geraremos um QR Code que pode ser usando com apps específicos, como Google Authenticator ou Authy.
 
-Este projeto foi desenvolvido em um Mac, mas acredito que tudo rode em Linux, e no Windows com algumas modificações em alguns comandos.
+Neste repositório está o código da aula sobre como implementar 2FA no Node.js, utilizando as libs `speakeasy` e `qrcode`. Na branch `main` você encontra o código inicial e na branch `complete` o código que teremos no final da aula.
 
-## Requisitos
+## Expert
 
-Este projeto consiste de uma API feita em Node.js que consome um banco PostgreSQL. Há um arquivo `.nvmrc` no projeto caso queira realizar a instalação usando o [nvm](https://github.com/nvm-sh/nvm).
+| [<img src="https://avatars.githubusercontent.com/u/711732?s=460&u=6b1039f8a921c5733d92d13b2971c55157fee005&v=4" width="75px;"/>](https://github.com/askmon) |
+| :-: |
+|[André Spanguero Kanayama](https://github.com/askmon)|
 
-O arquivo que possui o uso das libs do JWT em si, é o `src/services/token.js`
 
-## Rodando o projeto
+### Requisitos
 
-Para rodar o projeto é necessário rodar um banco Postgres, sugiro o uso do docker. Pode ser usado o seguinte comando:
+- Node.js v14 (`.nvmrc` incluso no projeto)
+- Conta na AWS (utilizaremos IAM e DynamoDB)
+- Um banco PostgreSQL (existe um docker-compose no projeto, para quem quiser rodar usando Docker)
 
-`docker run --name db-jwt-example -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres`
+### Como rodar
 
-Caso queira rodar em outro local, lembre-se de editar a url no arquivo `config/database.js`.
-
-O próximo passo é instalar as depêndencias:
-
-`npm install`
-
-Depois é necessário rodar a migration para criar as tabelas no banco:
-
-`npm run sequelize:migrate`
-
-E então pode-se rodar com nodemon:
-
-`npm run dev`
-
-Para facilitar os testes dos endpoints, pode ser usado o arquivo `JWT.postman_collection.json`
-
-## Comandos para criação de chaves privada e pública
-
-```
-openssl genrsa -out private-key.pem 2048 
-openssl rsa -in private-key.pem -pubout -out public-key.pem
-```
-
-Caso queira usar chaves previamente geradas, copie o arquivo `.env.example` para o arquivo `.env`. Mas lembre-se: **Não** use essas chaves em produção, **apenas** para teste.
-
-## Dúvidas
-
-Qualquer dúvida/problema referente ao projeto, sinta-se livre para abrir uma issue no projeto que eu vou responder assim que possível.
-
-## Links e referências
-
-Escrevi um artigo em que falo de alguns conceitos abordados no workshop, ele pode ser acessado clicando [aqui](https://askanayama.medium.com/entendendo-a-autentica%C3%A7%C3%A3o-com-jwt-2c562697a240).
-
-- [jwt.io](https://jwt.io/) - Debugger e referências sobre JWT (em inglês)
-- [Melhores práticas ao usar JWT](https://auth0.com/blog/a-look-at-the-latest-draft-for-jwt-bcp/) (em inglês)
-- [RFC do JWT](https://tools.ietf.org/html/rfc7519) (em inglês)
-- [Claims do JWT](https://ldapwiki.com/wiki/JSON%20Web%20Token%20Claims) - Aqui você encontra as reserved claims com breves explicações e também as do - [OpenID Connect Standard Claims](https://ldapwiki.com/wiki/OpenID%20Connect%20Standard%20Claims)
+0. Antes de tudo, rode o comando `npm install`;
+0. Caso queira rodar o banco localmente com Docker, pode-se utilizar o comando `docker-compose up` para subir o banco;
+0. Renomeie o arquivo `.env.example` para `.env` e edite as variáveis para conexão com o banco;
+0. Rode o comando `npm run sequelize:migrate` para gerar as tabelas;
+0. Rode o comando `npm run sequelize:seed` para criar dados de exemplo nas tabelas;
+0. Rode o comando `npm run dev` para rodar o projeto usando nodemon.
