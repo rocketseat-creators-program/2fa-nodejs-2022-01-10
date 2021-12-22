@@ -4,7 +4,7 @@
 
 Cada vez mais vemos crimes cibernéticos e golpes acontecendo que roubam os dados das pessoas, por isso precisamos investir sempre mais na segurança das nossas aplicações. Uma forma de aumentar a segurança no login dos usuários das nossas ferramentas é implementando a autenticação em 2 etapas, ou abreviando, 2FA (Two Factor Authentication). Existem diferentes formas de se fazer isso, mas nesta aula geraremos um QR Code que pode ser usando com apps específicos, como Google Authenticator ou Authy.
 
-Neste repositório está o código da aula sobre como implementar 2FA no Node.js, utilizando as libs `speakeasy` e `qrcode`. Na branch `main` você encontra o código inicial e na branch `complete` o código que teremos no final da aula.
+Neste repositório está o código da aula sobre como implementar 2FA no Node.js. Na branch `main` você encontra o código inicial e na branch `complete` o código que teremos no final da aula.
 
 ## Expert
 
