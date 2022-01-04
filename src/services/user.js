@@ -27,9 +27,17 @@ const findByEmail = email =>
 const findById = id =>
   User.findOne({ where: { id } })
 
+const addTwoFASecret = (id, secret) =>
+  User.update({ twoFaSecret: secret }, { where: { id } })
+
+const activateTwoFactor = id =>
+  User.update({ twoFaEnabled: true }, { where: { id } })
+
 module.exports = {
   getUsers,
   createUser,
   findByEmail,
   findById,
+  addTwoFASecret,
+  activateTwoFactor,
 }
