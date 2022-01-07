@@ -13,10 +13,6 @@
   "engines": {
     "node": ">=12"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/askmon/jwt-rocketseat.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
