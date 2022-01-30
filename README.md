@@ -16,7 +16,6 @@ Neste repositório está o código da aula sobre como implementar 2FA no Node.js
 ### Requisitos
 
 - Node.js v14 (`.nvmrc` incluso no projeto)
-- Conta na AWS (utilizaremos IAM e DynamoDB)
 - Um banco PostgreSQL (existe um docker-compose no projeto, para quem quiser rodar usando Docker)
 
 ### Como rodar
